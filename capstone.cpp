@@ -78,6 +78,8 @@ int Kd = -0.5;
 double lastError = 0;
 double cumError;
 
+const int TARGETVAL = 15;
+
 void loop() {
   // put your main code here, to run repeatedly:
   // Define the duration beetween transmitted and
@@ -94,8 +96,9 @@ void loop() {
   delay(1);
   Serial.println(cm); 
   delay(10); // Delay in between samples
-
-  double error = 15 - cm;
+  
+  
+  double error = TARGETVAL - cm;
   cumError += error * 10;
   double rateError = (error-lastError)/10;
   lastError = error;
